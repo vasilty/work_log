@@ -253,11 +253,14 @@ def lookup_entry():
             break
     if choice == 'd':
         search_results = search_by_date()
+        show_results(results=search_results)
     elif choice == 's' or choice == 'r':
         search_results = search_by_string_re()
+        show_results(results=search_results)
     elif choice == 't':
         search_results = search_by_time_spent()
-    show_results(results=search_results)
+        show_results(results=search_results)
+
 
 
 def menu_loop():

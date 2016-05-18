@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8e0c3bc-0b5a-4eef-b44b-18aecd7b3c79" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work_log.py" afterPath="$PROJECT_DIR$/work_log.py" />
     </list>
     <ignored path="project3_work_log.iws" />
@@ -27,8 +26,8 @@
       <file leaf-file-name="work_log.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/work_log.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="175" column="13" selection-start-line="175" selection-start-column="13" selection-end-line="175" selection-end-column="13" />
+            <state relative-caret-position="259">
+              <caret line="253" column="7" selection-start-line="253" selection-start-column="7" selection-end-line="253" selection-end-column="7" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -225,8 +224,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/work_log.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="175" column="13" selection-start-line="175" selection-start-column="13" selection-end-line="175" selection-end-column="13" />
+        <state relative-caret-position="259">
+          <caret line="253" column="7" selection-start-line="253" selection-start-column="7" selection-end-line="253" selection-end-column="7" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

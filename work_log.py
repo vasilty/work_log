@@ -125,10 +125,7 @@ def read_csvfile():
 def sort_dates(dates):
     dt_dates = [datetime.datetime.strptime(date, '%d.%m.%Y'
                                            ).date() for date in dates]
-    today = datetime.datetime.today().date()
-    tdeltas = [date - today for date in dt_dates]
-    sorted_tdeltas = sorted(tdeltas, key=lambda tdelta: tdelta.days)
-    sorted_dates = [tdelta + today for tdelta in sorted_tdeltas]
+    sorted_dates = sorted(dt_dates)
     return sorted_dates
 
 
@@ -173,7 +170,7 @@ def search_by_date(message=None):
             for row in rows:
                 dt_date = datetime.datetime.strptime(row['Date'], '%d.%m.%Y'
                                                      ).date()
-                if (sorted_date_range[-1] - dt_date).days > 0 and (
+                if (sorted_date_range[-1] - dt_date).days >= 0 and (
                         (sorted_date_range[-1] - dt_date).days) <= tdelta.days:
                     search_results.append(row)
         else:
@@ -270,10 +267,10 @@ def menu_loop():
         for key, value in menu.items():
             print('[{}] {}'.format(key, value.__doc__))
         print('[Q] Quit the program')
-        choice = input("Action: ").lower().strip()
+        choice = input("Action: ").upper().strip()
         if choice in menu:
             menu[choice]()
-        if choice == 'q':
+        if choice == 'Q':
             break
 
 

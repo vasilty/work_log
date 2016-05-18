@@ -42,7 +42,7 @@ def edit_entry(entry):
     while True:
         clear()
         choice = input("Edit the task [N]ame, [T]ime spent, n[O]tes, [D]ate\n"
-                       "or delete the entry and go to the main [M]enu? "
+                       "or delete the entry and go to the main [M]enu: "
                        ).lower().strip()
         if choice in 'ntodm':
             break
@@ -196,6 +196,7 @@ def search_by_string_re():
 
 
 def convert_time_spent_to_min(times):
+    """Converts time from w/d/h/m to minutes."""
     times_min = []
     for time in times:
         time_value = float(time[0])
@@ -249,7 +250,7 @@ def lookup_entry():
     while True:
         clear()
         choice = input('Search by [D]ate, exact [S]tring, [R]egular '
-                       'expression,\n[T]ime spent or go to the main [M]enu '
+                       'expression,\n[T]ime spent or go to the main [M]enu: '
                        ).lower().strip()
         if choice in 'dsrtm':
             break
@@ -267,8 +268,8 @@ def menu_loop():
     while True:
         clear()
         for key, value in menu.items():
-            print('{}) {}'.format(key, value.__doc__))
-        print('q) Quit the program')
+            print('[{}] {}'.format(key, value.__doc__))
+        print('[Q] Quit the program')
         choice = input("Action: ").lower().strip()
         if choice in menu:
             menu[choice]()
@@ -276,15 +277,11 @@ def menu_loop():
             break
 
 
-def work_log():
-    menu_loop()
-
-
 menu = OrderedDict([
-    ('a', add_entry),
-    ('l', lookup_entry),
+    ('A', add_entry),
+    ('L', lookup_entry),
 ])
 
 if __name__ == '__main__':
     #    init_csv_file()
-    work_log()
+    menu_loop()

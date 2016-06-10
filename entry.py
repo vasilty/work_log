@@ -8,6 +8,21 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def convert_time_spent_to_min(time):
+    """Converts time from w/d/h/m to minutes."""
+    time_value = float(time[0])
+    time_format = time[1]
+    if time_format == 'w':
+        time_min = time_value * 7 * 24 * 60
+    elif time_format == 'd':
+        time_min = time_value * 24 * 60
+    elif time_format == 'h':
+        time_min = time_value * 60
+    else:
+        time_min = time_value
+    return time_min
+
+
 class Entry:
     def get_name(self, message=None):
         """Gets task name and checks that its length > 0."""
@@ -24,20 +39,14 @@ class Entry:
         clear()
         if message:
             print(message)
-        time = input('Time spent (in [w]eeks/[d]ays/[h]ours/'
+        time_input = input('Time spent (in [w]eeks/[d]ays/[h]ours/'
                      '[m]inutes, eg. 1 h): \n').lower().strip()
         match = r'(?P<value>^[0-9]+.?[0-9]*)\s*(?P<format>[wdhm])$'
-        if re.search(match, time):
-            time_value = float(re.search(match, time).group('value'))
-            time_format = re.search(match, time).group('format')
-            if time_format == 'w':
-                self.time_spent = time_value * 7 * 24 * 60
-            elif time_format == 'd':
-                self.time_spent = time_value * 24 * 60
-            elif time_format == 'h':
-                self.time_spent = time_value * 60
-            else:
-                self.time_spent = time_value
+        time = re.findall(match, time_input)
+        if time:
+            self.time_spent = convert_time_spent_to_min(time=time[0])
+            if self.time_spent <= 0:
+                return self.get_time_spent(message="Time spent must be positive!")
         else:
             return self.get_time_spent(message='Invalid time format!')
 
